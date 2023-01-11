@@ -1,14 +1,19 @@
 package br.com.cruz.vita.livraria.model;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import br.com.cruz.vita.livraria.enums.StatusPedido;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -32,11 +37,10 @@ public class PedidoModel {
 	@Column(name = "id_pedido")
 	private Long id_pedido;
 	
-	@ManyToMany
+	
 	@JoinColumn(name = "id_cliente")
 	private Long id_cliente;
 	
-	@ManyToMany
 	@JoinColumn(name = "id_livro")
 	private Long id_livro;
 	
@@ -45,6 +49,18 @@ public class PedidoModel {
 	
 	@Column(name = "data_de_entrega")
 	private LocalDate data_de_entrega;
+	
+	@Column(name = "valor")
+	private BigDecimal valor;
+	
+	@Enumerated(EnumType.STRING)
+	private StatusPedido status;
+	
+	
+	private LivroModel livroModel;
+	
+	
+	private ClienteModel clienteModel;
 	
 	
 

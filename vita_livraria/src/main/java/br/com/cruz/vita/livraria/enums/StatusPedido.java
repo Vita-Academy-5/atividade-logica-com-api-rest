@@ -1,0 +1,12 @@
+package br.com.cruz.vita.livraria.enums;
+
+public enum StatusPedido {
+	
+	AGUARDANDO_PAGAMENTO,
+	PAGAMENTO_APROVADO,
+	PAGAMENTO_RECUSADO,
+	PEDIDO_ENTREGUE,
+	PEDIDO_A_CAMINHO,
+	PEDIDO_RECEBIDO
+
+}
